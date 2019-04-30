@@ -8,7 +8,9 @@ Klache is a simple [localStorage](https://developer.mozilla.org/en-US/docs/Web/A
 ```
 npm install klache
 ```
+
 In your `<head>` or build.
+
 ```
 <script src="/klache/dist/klache.min.js"></script>
 ```
@@ -65,7 +67,7 @@ Create or update a local storage object by key.
 | param            | type    | description                          |
 |:-----------------|:--------|:-------------------------------------|
 | $key             | string  | the local storage object key.        |
-| $payload         | object  | the local storage object data.       |
+| $payload         | object  | the object to store.                 |
 | $expiryInSeconds | int     | the expiry time in seconds.          |
 
 Example:
