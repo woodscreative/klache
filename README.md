@@ -79,4 +79,4 @@ klache.set('myStorageKey', {foo:'bar'}, 60);
 
 ## Test
 
-See `/test`.
+See `/test` directory.
