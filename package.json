@@ -1,0 +1,26 @@
+{
+  "name": "klache",
+  "version": "1.0.0",
+  "description": "A simple localStorage wrapper with cache built-in.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woodscreative/klache.git"
+  },
+  "keywords": [
+    "localStorage",
+    "cache"
+  ],
+  "author": "Paul Woods",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woodscreative/klache/issues"
+  },
+  "homepage": "https://github.com/woodscreative/klache#readme"
+}
