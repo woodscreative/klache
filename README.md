@@ -9,7 +9,7 @@ Klache is a simple [localStorage](https://developer.mozilla.org/en-US/docs/Web/A
 npm install klache
 ```
 
-Include the script up above or down below.
+Include the script.
 
 ```
 <script src="/klache/dist/klache.min.js"></script>

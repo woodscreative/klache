@@ -1,9 +1,4 @@
-/**
- * Klache
- * A simple local storage library with cache built-in.
- *
- * https://github.com/woodscreative/klache
- */
+/* Klache v1x | https://github.com/woodscreative/klache */
 
 klache = {};
 klache.version = '1.0.0';
