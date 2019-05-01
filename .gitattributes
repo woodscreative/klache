@@ -1,2 +1,2 @@
 dist/*.js linguist-detectable=true
-*.html linguist-detectable=false
+test/*.html linguist-detectable=false
