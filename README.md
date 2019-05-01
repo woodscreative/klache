@@ -20,9 +20,9 @@ Include the script up above or down below.
 ```
 var data = klache.get('myStorageKey');
 if (!data){
-	// fetch new data or do something...
-	var data = {foo:'bar'};
-	klache.set('myStorageKey', data, 60);
+  // fetch new data or do something...
+  var data = {foo:'bar'};
+  klache.set('myStorageKey', data, 60);
 };
 ```
 
