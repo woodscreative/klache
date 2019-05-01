@@ -1,1 +1,2 @@
-dist/*.js
+dist/*.js linguist-detectable=true
+*.html linguist-detectable=false
