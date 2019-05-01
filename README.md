@@ -12,7 +12,7 @@ npm install klache
 Include the script.
 
 ```
-<script src="/klache/dist/klache.min.js"></script>
+<script src="/klache/klache.min.js"></script>
 ```
 
 **Example**
