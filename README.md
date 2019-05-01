@@ -1,7 +1,7 @@
 Klache
 ======
 
-Klache is a simple [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) wrapper with cache built-in and hey, you use it in the browser.
+Klache is a simple [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) wrapper with cache expiry built-in and hey, you use it in the browser.
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ Klache is a simple [localStorage](https://developer.mozilla.org/en-US/docs/Web/A
 npm install klache
 ```
 
-In your `<head>` or build.
+Include the script up above or down below.
 
 ```
 <script src="/klache/dist/klache.min.js"></script>
@@ -73,7 +73,7 @@ Create or update a local storage object by key.
 Example:
 
 ```
-// create local storage object that expires in 60 seconds...
+// create a local storage object that expires in 60 seconds...
 klache.set('myStorageKey', {foo:'bar'}, 60);
 ```
 
