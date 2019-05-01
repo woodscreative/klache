@@ -9,7 +9,7 @@ Klache is a simple [localStorage](https://developer.mozilla.org/en-US/docs/Web/A
 npm install klache
 ```
 
-Include the script up above or down below.
+Include the script.
 
 ```
 <script src="/klache/dist/klache.min.js"></script>
@@ -20,9 +20,9 @@ Include the script up above or down below.
 ```
 var data = klache.get('myStorageKey');
 if (!data){
-	// fetch new data or do something...
-	var data = {foo:'bar'};
-	klache.set('myStorageKey', data, 60);
+  // fetch new data or do something...
+  var data = {foo:'bar'};
+  klache.set('myStorageKey', data, 60);
 };
 ```
 

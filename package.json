@@ -1,6 +1,6 @@
 {
   "name": "klache",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple localStorage wrapper with cache built-in.",
   "main": "index.js",
   "directories": {
