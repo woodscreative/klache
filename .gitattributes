@@ -1,2 +1,1 @@
-dist/*.js linguist-detectable=true
-test/*.html linguist-detectable=false
+test/* linguist-vendored
