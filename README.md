@@ -15,7 +15,7 @@ Include the script.
 <script src="/klache/klache.min.js"></script>
 ```
 
-**Example**
+*Example*
 
 ```
 var data = klache.get('myStorageKey');
@@ -28,11 +28,11 @@ if (!data){
 
 ## API
 
-**klache.removeAll()**
+### klache.removeAll()
 
 Delete all local storage objects.
 
-**klache.removeKey** (string $key)
+### klache.removeKey (string $key)
 
 Delete a local storage object by key.
 
@@ -40,27 +40,27 @@ Delete a local storage object by key.
 |:---------|:--------|:----------------------------------------|
 | $key     | string  | the local storage object key to remove. |
 
-Example:
+*Example*
 
 ```
 klache.removeKey('myKey');
 ```
 
-**klache.get** (string $key)
+### klache.get (string $key)
 
-Get local storage object by key.
+Get a local storage object by key.
 
 | param    | type    | description                               |
 |:---------|:--------|:------------------------------------------|
 | $key     | string  | the local storage object key to retrieve. |
 
-Example:
+*Example*
 
 ```
 var data = klache.get('myStorageKey');
 ```
 
-**klache.set** (string $key, object $payload, int $expiryInSeconds)
+### klache.set (string $key, object $payload, int $expiryInSeconds)
 
 Create or update a local storage object by key.
 
@@ -70,13 +70,13 @@ Create or update a local storage object by key.
 | $payload         | object  | the object to store.                 |
 | $expiryInSeconds | int     | the expiry time in seconds.          |
 
-Example:
+*Example*
 
 ```
 // create a local storage object that expires in 60 seconds...
 klache.set('myStorageKey', {foo:'bar'}, 60);
 ```
 
-## Test
+## Tests
 
 See `/tests` directory.
