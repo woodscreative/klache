@@ -18,12 +18,17 @@ Include the script.
 *Example*
 
 ```
-var data = klache.get('myStorageKey');
+var cache = {key:'myStorageKey', expires:60};
+var data = klache.get(cache.key);
 if (!data){
   // fetch new data or do something...
   var data = {foo:'bar'};
-  klache.set('myStorageKey', data, 60);
-};
+  // create a local storage object that expires in 60 seconds...
+  klache.set(cache.key, data, cache.expires);
+  console.log('Saved to localStorage:', data);
+} else {
+  console.log('Retrieved from localStorage:', data);
+}
 ```
 
 ## API
@@ -32,7 +37,13 @@ if (!data){
 
 Delete all local storage objects.
 
-### klache.removeKey (string $key)
+*Example*
+
+```
+klache.removeAll();
+```
+
+### klache.removeKey(string $key)
 
 Delete a local storage object by key.
 
@@ -46,7 +57,7 @@ Delete a local storage object by key.
 klache.removeKey('myKey');
 ```
 
-### klache.get (string $key)
+### klache.get(string $key)
 
 Get a local storage object by key.
 
@@ -60,7 +71,7 @@ Get a local storage object by key.
 var data = klache.get('myStorageKey');
 ```
 
-### klache.set (string $key, object $payload, int $expiryInSeconds)
+### klache.set(string $key, object $payload, int $expiryInSeconds)
 
 Create or update a local storage object by key.
 
