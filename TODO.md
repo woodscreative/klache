@@ -1,5 +1,6 @@
 TODO
 ====
 
++ Remove dist js files from root in v2.0
 + Implement method for version management maybe per object?
-+ Create active local storage object i.e chained .with() or .use() methods.
++ Create active localStorage object i.e chained .with() or .use() methods.

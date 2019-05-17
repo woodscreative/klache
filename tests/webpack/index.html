@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="../klache.min.js"></script>
+  <title>Bundle Test</title>
+  <style>.message {
+  position: relative;
+  padding: .75em;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #f1f5d6;
+  display: none;
+}
+.debug{
+  position: relative;
+  width: 100%;
+  height: 10em;
+}</style>
 </head>
 <body>
-  <h1>Klache</h1>
-  <p style="padding: .75em;font-size:1em;font-weight: bold; background-color:#f1f5d6; display: none;" id="message"></p>
+  <h1>Klache (v1.1.0)</h1>
+  <p>This test uses a Webpack bundle.</p>
+  <p id="message" class="message"></p>
   <p>
-    <button id="get">Get</button> 
-    <button id="clear-all">Clear All</button> 
-    <button id="clear-key">Clear Key</button>
+    <button id="button__get">Get</button> 
+    <button id="button__clear-all">Clear All</button> 
+    <button id="button__clear-key">Clear Key</button>
   </p>
-  
   <h2>Cache Settings</h2>
   <p>Change cache settings to your liking.</p>
   <form id="params">
@@ -31,26 +44,24 @@
       <label for="params__data">Cache Data (JSON)</label><br>
       <textarea id="params__data" name="params__data">{"foo":"bar"}</textarea>
     </p>
-    <p><button type="button" id="savey">Save</button></p>
+    <p><button type="button" id="button__save">Save</button></p>
   </form>
   
   <h2>Storage (Debug)</h2>
-  <textarea id="debug" style="width:100%;height: 10em;">Empty</textarea>
+  <textarea id="debug" class="debug">Empty</textarea>
+  <script src="bundle.js"></script>
   <script>
-  
-  // the cache settings
   var message = document.getElementById('message');
   var debug = document.getElementById('debug');
-  var getButton = document.getElementById('get');
-  var clearButton = document.getElementById('clear-all');
-  var clearKeyButton = document.getElementById('clear-key');
-  var saveButton = document.getElementById('savey');
+  var getButton = document.getElementById('button__get');
+  var clearButton = document.getElementById('button__clear-all');
+  var clearKeyButton = document.getElementById('button__clear-key');
+  var saveButton = document.getElementById('button__save');
   
   // write a persistent storage object for testing `clearAll()`
   klache.set('persistantStorageExample', {bar:'baz'});
   
-  // add event listeners...
-  
+  // 
   function getCacheSettings(){
     var cache = {
       key : document.getElementById('params__key').value,
@@ -69,6 +80,7 @@
     updateDebug();  
   });
   
+  //
   getButton.addEventListener('click', function() {
     var cache = getCacheSettings();
     var data = klache.get(cache.key);
@@ -80,12 +92,14 @@
     updateDebug();
   });
   
+  // 
   clearButton.addEventListener('click', function() {
     klache.removeAll();
     messageDisplay('All Storage Cleared!');
     updateDebug();
   });
   
+  // 
   clearKeyButton.addEventListener('click', function() {
     var cache = getCacheSettings();
     klache.removeKey(cache.key);
@@ -93,19 +107,20 @@
     updateDebug();
   });
   
+  // 
   function updateDebug(){
     var cache = getCacheSettings();
     var data = klache.get(cache.key);
     debug.innerHTML = JSON.stringify(data, null, '\t');
   };
   
+  // 
   function messageDisplay($msg){
     message.innerHTML = $msg;
     message.style.display = 'block';
   };
   
   updateDebug();
-  
   </script>
 </body>
 </html>

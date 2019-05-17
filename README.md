@@ -1,21 +1,42 @@
 Klache
 ======
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 Klache is a simple javascript [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) wrapper with cache expiry built-in and hey, you use it in the browser.
 
-## Getting Started
+## Contents
+
++ [Installation](#installation)
++ [Getting Started](#getting-started)
++ [Example](#example)
++ [API](#api)
++ [Tests](#tests)
+
+
+## Installation
 
 ```
 npm install klache
 ```
 
-Include the script.
+
+## Getting Started
+
+Include the script from the `/dist` directory
 
 ```
-<script src="/klache/klache.min.js"></script>
+<script src="dist/klache.min.js"></script>
 ```
 
-*Example*
+or use klache as a [UMD](https://github.com/umdjs/umd) and bundle it using [Webpack](https://webpack.js.org/).
+
+```
+var klache = require('klache')
+```
+
+
+## Example
 
 ```
 var cache = {key:'myStorageKey', expires:60};
@@ -30,6 +51,7 @@ if (!data){
   console.log('Retrieved from localStorage:', data);
 }
 ```
+
 
 ## API
 
@@ -51,6 +73,7 @@ Delete a local storage object by key.
 |:---------|:--------|:----------------------------------------|
 | $key     | string  | the local storage object key to remove. |
 
+
 *Example*
 
 ```
@@ -64,6 +87,7 @@ Get a local storage object by key.
 | param    | type    | description                               |
 |:---------|:--------|:------------------------------------------|
 | $key     | string  | the local storage object key to retrieve. |
+
 
 *Example*
 
@@ -88,6 +112,7 @@ Create or update a local storage object by key.
 klache.set('myStorageKey', {foo:'bar'}, 60);
 ```
 
+
 ## Tests
 
-See `/tests` directory.
+See `/tests` directory for basic distribution and Webpack bundle tests.

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Test</title>
+  <style>.message {
+  position: relative;
+  padding: .75em;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #f1f5d6;
+  display: none;
+}
+.debug{
+  position: relative;
+  width: 100%;
+  height: 10em;
+}</style>
+</head>
+<body>
+  <h1>Klache (v1.1.0)</h1>
+  <p>Uses the minified distribution.</p>
+  <p id="message" class="message"></p>
+  <p>
+    <button id="button__get">Get</button> 
+    <button id="button__clear-all">Clear All</button> 
+    <button id="button__clear-key">Clear Key</button>
+  </p>
+  <h2>Cache Settings</h2>
+  <p>Change cache settings to your liking.</p>
+  <form id="params">
+    <p>
+      <label for="params__key">Cache Key</label><br>
+      <input id="params__key" type="text" name="key" value="myStorageKey">
+    </p>
+    <p>
+      <label for="params__expires">Cache Expiry (seconds)</label><br>
+      <select id="params__expires" name="params__expires">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+      </select>
+    </p>
+    <p>
+      <label for="params__data">Cache Data (JSON)</label><br>
+      <textarea id="params__data" name="params__data">{"foo":"bar"}</textarea>
+    </p>
+    <p><button type="button" id="button__save">Save</button></p>
+  </form>
+  
+  <h2>Storage (Debug)</h2>
+  <textarea id="debug" class="debug">Empty</textarea>
+  <script src="../../dist/klache.min.js"></script>
+  <script>
+  var message = document.getElementById('message');
+  var debug = document.getElementById('debug');
+  var getButton = document.getElementById('button__get');
+  var clearButton = document.getElementById('button__clear-all');
+  var clearKeyButton = document.getElementById('button__clear-key');
+  var saveButton = document.getElementById('button__save');
+  
+  // write a persistent storage object for testing `clearAll()`
+  klache.set('persistantStorageExample', {bar:'baz'});
+  
+  // 
+  function getCacheSettings(){
+    var cache = {
+      key : document.getElementById('params__key').value,
+      expires : parseInt(document.getElementById('params__expires').value),
+      data : JSON.parse(document.getElementById('params__data').value),
+    };
+    return cache;  
+  };
+  
+  // update storage from cache settings...
+  saveButton.addEventListener('click', function() {
+    var cache = getCacheSettings();
+    //console.log('SAVEY', cache);
+    klache.set(cache.key, cache.data, cache.expires);
+    messageDisplay('Storage Saved!');
+    updateDebug();  
+  });
+  
+  //
+  getButton.addEventListener('click', function() {
+    var cache = getCacheSettings();
+    var data = klache.get(cache.key);
+    if (data){
+      messageDisplay('Storage Retrieved!');
+    } else {
+      messageDisplay('Storage Empty!');
+    };
+    updateDebug();
+  });
+  
+  // 
+  clearButton.addEventListener('click', function() {
+    klache.removeAll();
+    messageDisplay('All Storage Cleared!');
+    updateDebug();
+  });
+  
+  // 
+  clearKeyButton.addEventListener('click', function() {
+    var cache = getCacheSettings();
+    klache.removeKey(cache.key);
+    messageDisplay('Storage '+cache.key+' Cleared!');
+    updateDebug();
+  });
+  
+  // 
+  function updateDebug(){
+    var cache = getCacheSettings();
+    var data = klache.get(cache.key);
+    debug.innerHTML = JSON.stringify(data, null, '\t');
+  };
+  
+  // 
+  function messageDisplay($msg){
+    message.innerHTML = $msg;
+    message.style.display = 'block';
+  };
+  
+  updateDebug();
+  </script>
+</body>
+</html>
