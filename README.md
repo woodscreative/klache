@@ -1,18 +1,34 @@
 Klache
 ======
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 Klache is a simple javascript [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) wrapper with cache expiry built-in and hey, you use it in the browser.
 
 ## Getting Started
+
++ [Installation](#installation)
+
+### Installation
 
 ```
 npm install klache
 ```
 
-Include the script.
+### Distribution
+
+Include the `/dist` script.
 
 ```
-<script src="/klache/klache.min.js"></script>
+<script src="dist/klache.min.js"></script>
+```
+
+### Webpack & Modules
+
+Klache is a [UMD](https://github.com/umdjs/umd). Bundle it using Webpack.
+
+```
+var klache = require('klache')
 ```
 
 *Example*
@@ -91,3 +107,12 @@ klache.set('myStorageKey', {foo:'bar'}, 60);
 ## Tests
 
 See `/tests` directory.
+
+### Basic
+
+See `/tests/basic/index.html` for testing the basic distribution.
+
+
+### Webpack
+
+See `/tests/webpack/index.html` for testing using a Webpack bundle.

@@ -1,0 +1,13 @@
+.message {
+  position: relative;
+  padding: .75em;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #f1f5d6;
+  display: none;
+}
+.debug{
+  position: relative;
+  width: 100%;
+  height: 10em;
+}
