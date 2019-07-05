@@ -1,9 +1,17 @@
 GUIDE
 =====
 
+If `node_modules` is missing run
+
+```
+npm install
+```
+
 ### Build
 
-To perform *Standard JS* formatting/fixes, run *Grunt Tasks* to output distribution assets and build */tests*:
+To perform *Standard JS* formatting/fixes, run `grunt`.
+
+To output distribution assets and build */tests*:
 
 ```
 npm run build
